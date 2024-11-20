@@ -25,7 +25,8 @@ function Form3() {
     }
   });
   // console.log("Form Value", formik.values)
-  console.log("Form Errors :", formik.errors);
+  // console.log("Form Errors :", formik.errors);
+  console.log("Visited Fields :", formik.touched)
   return (
         <div >
                <div className="container col-sm-5">
@@ -42,9 +43,10 @@ function Form3() {
               name="name"
               onChange={formik.handleChange}
               value={formik.values.name}
+              onBlur={formik.handleBlur}
               className="form-control"
             />
-            {formik.errors.name ? (<div >{formik.errors.name}</div>) : null}
+            {formik.touched.name && formik.errors.name ? (<div >{formik.errors.name}</div>) : null}
           </div>
         </div>
         <div className="form-group">
@@ -58,9 +60,10 @@ function Form3() {
               name="email"
               onChange={formik.handleChange}
               value={formik.values.email}
+              onBlur={formik.handleBlur}
               className="form-control"
             />
-             {formik.errors.email ? (<div >{formik.errors.email}</div>) : null}
+             {formik.touched.email && formik.errors.email ? (<div >{formik.errors.email}</div>) : null}
           </div>
         </div>
         <div className="form-group">
@@ -74,9 +77,10 @@ function Form3() {
               name="channel"
               onChange={formik.handleChange}
               value={formik.values.channel}
+              onBlur={formik.handleBlur}
               className="form-control"
             />
-             {formik.errors.channel ? (<div >{formik.errors.channel}</div>) : null}
+             {formik.touched.channel && formik.errors.channel ? (<div >{formik.errors.channel}</div>) : null}
           </div>
         </div>
 
