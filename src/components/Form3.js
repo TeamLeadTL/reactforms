@@ -10,6 +10,19 @@ function Form3() {
     onSubmit: (values) => {
       console.log("Form Data :", values);
     },
+    validate: (values) => {
+      let errors = {};
+      if (!values.name){
+        errors.name = "Name Required";
+      }
+      if (!values.email){
+        errors.email = "Email Required";
+      }
+      if (!values.channel){
+        errors.channel = "Channel Required"
+      }
+      return errors;
+    }
   });
   // console.log("Form Value", formik.values)
   return (
