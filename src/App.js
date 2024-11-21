@@ -6,6 +6,7 @@ import Form4 from "./components/Form4.js";
 import MyForm from "./components/MyForm.js";
 import MultiFormContainer from "./components/MultipleFormContainer.js";
 import MasterForm from "./components/MasterForm.js"
+import LayoutToggle from "./components/LayoutToggle.js";
 function App() {
   return (
   //   <React.Fragment>
@@ -32,6 +33,7 @@ function App() {
       <MyForm />
       <MultiFormContainer />
       <MasterForm />
+      <LayoutToggle />
   </React.Fragment>
   );
 }
