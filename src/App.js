@@ -25,6 +25,7 @@ function App() {
   <React.Fragment>
     <div style={{border:'2px solid gray'}} className="container">
       <div className="row">
+        {/* Apply bootstrap cdn for form2/3/4 */}
         <div style={{border:'2px solid green'}} className="col-sm-12"><Form2 /></div>
         <div style={{border:'2px solid green'}} className="col-sm-12"><Form3 /></div>
         <div style={{border:'2px solid green'}} className="col-sm-12"><Form4 /></div>    
