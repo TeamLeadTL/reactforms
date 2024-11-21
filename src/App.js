@@ -5,7 +5,7 @@ import Form3 from "./components/Form3.js";
 import Form4 from "./components/Form4.js";
 import MyForm from "./components/MyForm.js";
 import MultiFormContainer from "./components/MultipleFormContainer.js";
-
+import MasterForm from "./components/MasterForm.js"
 function App() {
   return (
   //   <React.Fragment>
@@ -31,6 +31,7 @@ function App() {
     </div>
       <MyForm />
       <MultiFormContainer />
+      <MasterForm />
   </React.Fragment>
   );
 }

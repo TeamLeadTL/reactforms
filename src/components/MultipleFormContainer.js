@@ -27,21 +27,26 @@ const MultiFormContainer = () => {
     console.log("Form 2 Submitted:", values);
   };
 
-    // Form 3 Configuration
-    const form3InitialValues = { email: "", age: "", name:"",gender:"",feedback:"" };
-    const form3ValidationSchema = Yup.object({
-      email: Yup.string().email("Invalid email").required("Email is required"),
-      age: Yup.number()
-        .typeError("Age must be a number")
-        .required("Age is required"),
-      name:Yup.string().required("name is Required"),
-      gender:Yup.string().required("gender is required"),
-      feedback:Yup.string().required("Feedback is required")
-
-    });
-    const form3Submit = (values) => {
-      console.log("Form 3 Submitted:", values);
-    };
+  // Form 3 Configuration
+  const form3InitialValues = {
+    email: "",
+    age: "",
+    name: "",
+    gender: "",
+    feedback: "",
+  };
+  const form3ValidationSchema = Yup.object({
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    age: Yup.number()
+      .typeError("Age must be a number")
+      .required("Age is required"),
+    name: Yup.string().required("name is Required"),
+    gender: Yup.string().required("gender is required"),
+    feedback: Yup.string().required("Feedback is required"),
+  });
+  const form3Submit = (values) => {
+    console.log("Form 3 Submitted:", values);
+  };
 
   return (
     <div style={{ border: "2px solid black" }} className="container mt-4">
@@ -223,16 +228,16 @@ const MultiFormContainer = () => {
                     Gender
                   </label>
                   <Field
-                                        as="select"
-                                        id="gender"
-                                        name="gender"
-                                        className="form-control"
-                                    >
-                                        <option value="">Select a country</option>
-                                        <option value="MALE">Male</option>
-                                        <option value="FEMALE">Female</option>
-                                        <option value="TRANS">Transgender</option>
-                                    </Field>
+                    as="select"
+                    id="gender"
+                    name="gender"
+                    className="form-control"
+                  >
+                    <option value="">Select a gender</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                    <option value="TRANS">Transgender</option>
+                  </Field>
                   <ErrorMessage
                     name="age"
                     component="div"
@@ -268,113 +273,263 @@ const MultiFormContainer = () => {
         </Formik>
       </div>
 
-      {/* Form 4 */}
-      <div className="mt-5" style={{ border: "2px solid blue" }}>
-        <h2>Form 4 Rearranged: Feedback</h2>
-        <Formik
-          initialValues={form3InitialValues}
-          validationSchema={form3ValidationSchema}
-          onSubmit={form3Submit}
+      {/* Form 4 in a row and then containers and then row */}
+      <div className="row " style={{ border: "2px solid seagreen" }}>
+          <div className="col-sm-6">
+          <div
+          className="container"
+          style={{ border: "5px solid yellow", maxWidth:"500px" }}
         >
-          {({ isSubmitting }) => (
-            <Form>
-              <div style={{ border: "2px solid red" }} className="row mb-3">
-                <div style={{ border: "2px solid green" }} className="col-md-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
-                  </label>
-                  <Field
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-danger"
-                  />
+          <h2>Form 4 Rearranged: Feedback</h2>
+          <Formik
+            initialValues={form3InitialValues}
+            validationSchema={form3ValidationSchema}
+            onSubmit={form3Submit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <div style={{ border: "2px solid red" }} className="row mb-3">
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-3"
+                  >
+                    <label htmlFor="email" className="form-label">
+                      Email
+                    </label>
+                    <Field
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="age" className="form-label">
+                      Age
+                    </label>
+                    <Field
+                      type="text"
+                      id="age"
+                      name="age"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="age"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="name" className="form-label">
+                      Name
+                    </label>
+                    <Field
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="gender" className="form-label">
+                      Gender
+                    </label>
+                    <Field
+                      as="select"
+                      id="gender"
+                      name="gender"
+                      className="form-control"
+                    >
+                      <option value="">Select a gender</option>
+                      <option value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                      <option value="TRANS">Transgender</option>
+                    </Field>
+                    <ErrorMessage
+                      name="age"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="feedback" className="form-label">
+                      Feedback
+                    </label>
+                    <Field
+                      type="text"
+                      id="feedback"
+                      name="feedback"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="feedback"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
                 </div>
-                <div style={{ border: "2px solid green" }} className="col-md-2">
-                  <label htmlFor="age" className="form-label">
-                    Age
-                  </label>
-                  <Field
-                    type="text"
-                    id="age"
-                    name="age"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="age"
-                    component="div"
-                    className="text-danger"
-                  />
+                <button
+                  type="submit"
+                  className="btn btn-danger"
+                  disabled={isSubmitting}
+                >
+                  Submit Form 3
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+          </div>
+          <div className="col-sm-6">
+          <div
+          className="container"
+          style={{ border: "5px solid yellow", maxWidth:"500px" }}
+        >
+          <h2>Form 4 Rearranged: Feedback</h2>
+          <Formik
+            initialValues={form3InitialValues}
+            validationSchema={form3ValidationSchema}
+            onSubmit={form3Submit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <div style={{ border: "2px solid red" }} className="row mb-3">
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-3"
+                  >
+                    <label htmlFor="email" className="form-label">
+                      Email
+                    </label>
+                    <Field
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="age" className="form-label">
+                      Age
+                    </label>
+                    <Field
+                      type="text"
+                      id="age"
+                      name="age"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="age"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="name" className="form-label">
+                      Name
+                    </label>
+                    <Field
+                      type="text"
+                      id="name"
+                      name="name"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="gender" className="form-label">
+                      Gender
+                    </label>
+                    <Field
+                      as="select"
+                      id="gender"
+                      name="gender"
+                      className="form-control"
+                    >
+                      <option value="">Select a gender</option>
+                      <option value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                      <option value="TRANS">Transgender</option>
+                    </Field>
+                    <ErrorMessage
+                      name="age"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div
+                    style={{ border: "2px solid green" }}
+                    className="col-md-2"
+                  >
+                    <label htmlFor="feedback" className="form-label">
+                      Feedback
+                    </label>
+                    <Field
+                      type="text"
+                      id="feedback"
+                      name="feedback"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="feedback"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
                 </div>
-                <div style={{ border: "2px solid green" }} className="col-md-2">
-                  <label htmlFor="name" className="form-label">
-                    Name
-                  </label>
-                  <Field
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-                <div style={{ border: "2px solid green" }} className="col-md-2">
-                  <label htmlFor="gender" className="form-label">
-                    Gender
-                  </label>
-                  <Field
-                                        as="select"
-                                        id="gender"
-                                        name="gender"
-                                        className="form-control"
-                                    >
-                                        <option value="">Select a country</option>
-                                        <option value="MALE">Male</option>
-                                        <option value="FEMALE">Female</option>
-                                        <option value="TRANS">Transgender</option>
-                                    </Field>
-                  <ErrorMessage
-                    name="age"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-                <div style={{ border: "2px solid green" }} className="col-md-2">
-                  <label htmlFor="feedback" className="form-label">
-                    Feedback
-                  </label>
-                  <Field
-                    type="text"
-                    id="feedback"
-                    name="feedback"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="feedback"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="btn btn-danger"
-                disabled={isSubmitting}
-              >
-                Submit Form 3
-              </button>
-            </Form>
-          )}
-        </Formik>
+                <button
+                  type="submit"
+                  className="btn btn-danger"
+                  disabled={isSubmitting}
+                >
+                  Submit Form 3
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+
+          </div>
       </div>
     </div>
   );
