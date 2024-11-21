@@ -3,6 +3,9 @@ import Form1 from "./components/Form1.js";
 import Form2 from "./components/Form2.js";
 import Form3 from "./components/Form3.js";
 import Form4 from "./components/Form4.js";
+import MyForm from "./components/MyForm.js";
+import MultiFormContainer from "./components/MultipleFormContainer.js";
+
 function App() {
   return (
   //   <React.Fragment>
@@ -26,6 +29,8 @@ function App() {
         <div style={{border:'2px solid green'}} className="col-sm-12"><Form4 /></div>    
       </div>
     </div>
+      <MyForm />
+      <MultiFormContainer />
   </React.Fragment>
   );
 }
